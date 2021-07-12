@@ -186,7 +186,7 @@ const data = [{
     name: 'Stylist apartment in center of the city',
     location: "Trichy",
     type: "Entire apartment . 2 beds",
-    guest:4,
+    guest:7,
     rating: 4.40,
     host: 'super',
     id:1
@@ -216,7 +216,7 @@ const data = [{
     name: 'Cozy, peaceful and private room with',
     location: 'Dindugal',
     type: "Entire apartment . 2 beds",
-    guest:4,
+    guest:5,
     rating: 4.85,
     host: 'super',
     id:4
