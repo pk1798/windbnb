@@ -4,7 +4,7 @@ import data from './Server/data';
 
 const Header = () => {
 
-    const [locationValue, setLocationValue] = useState();
+    const [locationValue, setLocationValue] = useState('');
     const [guestValue, setGuestValue] = useState();
     const [hotels, setHotels] = useState([]);
 
@@ -12,10 +12,9 @@ const Header = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         let hotelLists = data;
-        let filteredHotelsLocation = hotelLists.filter((hotel)=>hotel.location === locationValue);
-        // let filteredHotelsGuest = hotelLists.filter((hotel)=>hotel.guest == guestValue);
+        let filteredHotelsLocation = hotelLists.filter((hotel)=>hotel.location === locationValue && hotel.guest === parseInt(guestValue));
         setHotels(filteredHotelsLocation)
-        // setHotels(filteredHotelsGuest)
+
     }
 
 
@@ -28,8 +27,8 @@ const Header = () => {
                     </svg> windbnb</h1>
             </div>
             <form className="form" onSubmit={handleSubmit}>
-                    <input type="text" onChange={(e)=>setLocationValue(e.target.value)} placeholder="location" />
-                    <input type="text"  onChange={(e)=>setGuestValue(e.target.value)} placeholder="Add Guest"/>
+                    <input type="text" onChange={(e)=>setLocationValue(e.target.value)} placeholder="location" required />
+                    <input type="number"  onChange={(e)=> setGuestValue(e.target.value)} placeholder="Add Guest" required/>
                     <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#EB5757" className="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                     </svg></button>
